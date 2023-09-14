@@ -1,5 +1,56 @@
 package br.edu.infnet.sistemaoficinamecanica.model.negocio;
 
-public class Alinhamento extends Servico {
 
+
+public class Alinhamento extends Servico {
+	
+	private float ajusteCambagem;
+	private boolean freiosVerificados;
+	private String condicaoPneus;
+	
+	public Alinhamento() {
+
+	}
+	
+	public Alinhamento(String nome, float valor, int codigo, float ajusteCambagem, boolean freiosVerificados, String condicaoPneus) {
+		super(nome, valor, codigo);
+		this.ajusteCambagem = ajusteCambagem;
+		this.freiosVerificados = freiosVerificados;
+		this.condicaoPneus = condicaoPneus;
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("%s;%.2f;%s;%s", 
+				super.toString(),
+				ajusteCambagem, 
+				freiosVerificados, 
+				condicaoPneus
+			);
+	}
+
+	public float getAjusteCambagem() {
+		return ajusteCambagem;
+	}
+
+	public void setAjusteCambagem(float ajusteCambagem) {
+		this.ajusteCambagem = ajusteCambagem;
+	}
+
+	public boolean isFreiosVerificados() {
+		return freiosVerificados;
+	}
+
+	public void setFreiosVerificados(boolean freiosVerificados) {
+		this.freiosVerificados = freiosVerificados;
+	}
+
+	public String getCondicaoPneus() {
+		return condicaoPneus;
+	}
+
+	public void setCondicaoPneus(String condicaoPneus) {
+		this.condicaoPneus = condicaoPneus;
+	}
+	
 }
