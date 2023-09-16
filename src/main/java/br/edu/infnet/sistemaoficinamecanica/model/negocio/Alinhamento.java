@@ -12,8 +12,8 @@ public class Alinhamento extends Servico {
 
 	}
 	
-	public Alinhamento(String nome, float valor, int codigo, float ajusteCambagem, boolean freiosVerificados, String condicaoPneus) {
-		super(nome, valor, codigo);
+	public Alinhamento(String tipoServico, float preco, int codigoServico, boolean freiosVerificados, float ajusteCambagem, String condicaoPneus) {
+		super (tipoServico, preco, codigoServico);
 		this.ajusteCambagem = ajusteCambagem;
 		this.freiosVerificados = freiosVerificados;
 		this.condicaoPneus = condicaoPneus;

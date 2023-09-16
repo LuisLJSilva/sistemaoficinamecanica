@@ -24,14 +24,14 @@ public class ClienteController {
 	
 	public void incluir(Cliente cliente) {
 		mapaCliente.put(cliente.getCpf(), cliente);
-		System.out.println("[Solicitante] Inclusão realizada com sucesso: " + cliente);
+		System.out.println("[Cliente] Inclusão realizada com sucesso: " + cliente);
 	}
 	
 	public void excluir (String cpf) {
 		mapaCliente.remove(cpf);
 	}
 	
-	@GetMapping(value = "/solicitante/lista")
+	@GetMapping(value = "/cliente/lista")
 	public String telaLista(Model model) {
 		
 		model.addAttribute("listaCliente", obterLista());
@@ -39,7 +39,7 @@ public class ClienteController {
 		return "cliente/lista";
 	}
 		
-	@GetMapping(value = "/solicitante/{cpf}/excluir")
+	@GetMapping(value = "/cliente/{cpf}/excluir")
 	public String exclusao(@PathVariable String cpf) {
 		
 		System.out.println();

@@ -10,8 +10,8 @@ public class Pintura extends Servico {
 		
 	}
 	
-	public Pintura(String tipoServico, float valor, int id, float intensidadeBrilho, boolean tintaEcologica, String cor) {
-		super (tipoServico, valor, id);
+	public Pintura(String tipoServico, float preco, int codigoServico, boolean tintaEcologica, float intensidadeBrilho, String cor) {
+		super (tipoServico, preco, codigoServico);
 		this.intensidadeBrilho = intensidadeBrilho;
 		this.tintaEcologica = tintaEcologica;
 		this.cor = cor;		
@@ -19,7 +19,7 @@ public class Pintura extends Servico {
 	
 	@Override
 	public String toString() {
-		return String.format("%s;%s;%2.f;%s",
+		return String.format("%s;%.2f;%s;%s",
 				super.toString(),
 				intensidadeBrilho,
 				tintaEcologica,

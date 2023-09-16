@@ -3,26 +3,26 @@ package br.edu.infnet.sistemaoficinamecanica.model.negocio;
 public class Manutencao extends Servico {
 	
 	private boolean necessitaPeca;
-	private float custoEstimado;
+	private float tempoTrabalho;
 	private String tipoManutencao;
 	
 	public Manutencao() {
 		
 	}
 	
-	public Manutencao(String tipoServico, float valor, int id, boolean necessitaPeca, float custoEstimado, String tipoManutencao) {
-		super (tipoServico, valor, id);
+	public Manutencao(String tipoServico, float preco, int codigoServico, boolean necessitaPeca, float tempoTrabalho, String tipoManutencao) {
+		super (tipoServico, preco, codigoServico);
 		this.necessitaPeca = necessitaPeca;
-		this.custoEstimado = custoEstimado;
+		this.tempoTrabalho = tempoTrabalho;
 		this.tipoManutencao = tipoManutencao;		
 	}
 	
 	@Override
 	public String toString() {
-		return String.format("%s;%s;%2.f;%s",
+		return String.format("%s;%s;%.2f;%s",
 				super.toString(),
 				necessitaPeca,
-				custoEstimado,
+				tempoTrabalho,
 				tipoManutencao
 				);
 	}
@@ -35,12 +35,12 @@ public class Manutencao extends Servico {
 		this.necessitaPeca = necessitaPeca;
 	}
 
-	public float getCustoEstimado() {
-		return custoEstimado;
+	public float getTempoTrabalho() {
+		return tempoTrabalho;
 	}
 
-	public void setCustoEstimado(float custoEstimado) {
-		this.custoEstimado = custoEstimado;
+	public void setTempoTrabalho(float tempoTrabalho) {
+		this.tempoTrabalho = tempoTrabalho;
 	}
 
 	public String getTipoManutencao() {

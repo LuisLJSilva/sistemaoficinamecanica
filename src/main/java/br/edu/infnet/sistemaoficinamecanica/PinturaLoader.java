@@ -11,17 +11,18 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.sistemaoficinamecanica.model.negocio.Manutencao;
+import br.edu.infnet.sistemaoficinamecanica.model.negocio.Pintura;
 
-@Order(1)
+@Order(3)
 @Component
-public class ManutencaoLoader implements ApplicationRunner {
+public class PinturaLoader implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 
-		Map<Integer, Manutencao> mapaManutencao = new HashMap<Integer, Manutencao>();
+		Map<Integer, Pintura> mapaPintura = new HashMap<Integer, Pintura>();
 
-		FileReader file = new FileReader("arquivos/manutencao.txt");
+		FileReader file = new FileReader("arquivos/pintura.txt");
 		BufferedReader leitura = new BufferedReader(file);
 
 		String linha = leitura.readLine();
@@ -31,22 +32,22 @@ public class ManutencaoLoader implements ApplicationRunner {
 		while (linha != null) {
 			campos = linha.split(";");
 
-			Manutencao manutencao = new Manutencao(
-									campos[0],
-									Float.valueOf(campos[1]),
-									Integer.valueOf(campos[2]),
-									Boolean.valueOf(campos[3]),
-									Float.valueOf(campos[4]),
-									campos[5]);
+			Pintura pintura = new Pintura(
+							  campos[0],
+							  Float.valueOf(campos[1]),
+							  Integer.valueOf(campos[2]),
+							  Boolean.valueOf(campos[3]),
+							  Float.valueOf(campos[4]),
+							  campos[5]);
 
-			mapaManutencao.put(manutencao.getCodigoServico(), manutencao);
+			mapaPintura.put(pintura.getCodigoServico(), pintura);
 
 			linha = leitura.readLine();
 
 		}
 
-		for (Manutencao manutencao : mapaManutencao.values()) {
-			System.out.println("[Manutencao] Inclusão realizada com sucesso: " + manutencao);
+		for (Pintura pintura : mapaPintura.values()) {
+			System.out.println("[Pintura] Inclusão realizada com sucesso: " + pintura);
 		}
 
 		leitura.close();

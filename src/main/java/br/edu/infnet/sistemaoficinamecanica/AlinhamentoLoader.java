@@ -10,18 +10,19 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.sistemaoficinamecanica.model.negocio.Alinhamento;
 import br.edu.infnet.sistemaoficinamecanica.model.negocio.Manutencao;
 
-@Order(1)
+@Order(2)
 @Component
-public class ManutencaoLoader implements ApplicationRunner {
+public class AlinhamentoLoader implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 
-		Map<Integer, Manutencao> mapaManutencao = new HashMap<Integer, Manutencao>();
+		Map<Integer, Alinhamento> mapaAlinhamento = new HashMap<Integer, Alinhamento>();
 
-		FileReader file = new FileReader("arquivos/manutencao.txt");
+		FileReader file = new FileReader("arquivos/alinhamento.txt");
 		BufferedReader leitura = new BufferedReader(file);
 
 		String linha = leitura.readLine();
@@ -31,22 +32,22 @@ public class ManutencaoLoader implements ApplicationRunner {
 		while (linha != null) {
 			campos = linha.split(";");
 
-			Manutencao manutencao = new Manutencao(
+			Alinhamento alinhamento = new Alinhamento(
 									campos[0],
 									Float.valueOf(campos[1]),
-									Integer.valueOf(campos[2]),
+									Integer.valueOf(campos[2]),			
 									Boolean.valueOf(campos[3]),
 									Float.valueOf(campos[4]),
 									campos[5]);
 
-			mapaManutencao.put(manutencao.getCodigoServico(), manutencao);
+			mapaAlinhamento.put(alinhamento.getCodigoServico(), alinhamento);
 
 			linha = leitura.readLine();
 
 		}
 
-		for (Manutencao manutencao : mapaManutencao.values()) {
-			System.out.println("[Manutencao] Inclusão realizada com sucesso: " + manutencao);
+		for (Alinhamento alinhamento : mapaAlinhamento.values()) {
+			System.out.println("[Alinhamento] Inclusão realizada com sucesso: " + alinhamento);
 		}
 
 		leitura.close();

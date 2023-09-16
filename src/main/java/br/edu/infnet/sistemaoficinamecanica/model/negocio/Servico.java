@@ -1,27 +1,25 @@
 package br.edu.infnet.sistemaoficinamecanica.model.negocio;
 
-import java.time.LocalDate;
-
-public class Servico {
+public abstract class Servico {
 	
 	
 	private String tipoServico;
-	private float valor;
-	private int id;
+	private float preco;
+	private int codigoServico;
 	
 	public Servico() {
 		
 	}
 	
-	public Servico(String tipoServico, float valor, int id) {
+	public Servico(String tipoServico, float preco, int codigoServico) {
 		this.tipoServico = tipoServico;
-		this.valor = valor;
-		this.id = id;
+		this.preco = preco;
+		this.codigoServico = codigoServico;
 	}
 	
 	@Override
 	public String toString() {
-		return String.format("%s;%.2f;%d", tipoServico, valor, id);
+		return String.format("%s;%.2f;%d", tipoServico, preco, codigoServico);
 	}
 
 	public String getTipoServico() {
@@ -32,20 +30,20 @@ public class Servico {
 		this.tipoServico = tipoServico;
 	}
 
-	public float getValor() {
-		return valor;
+	public float getPreco() {
+		return preco;
 	}
 
-	public void setValor(float valor) {
-		this.valor = valor;
+	public void setPreco(float preco) {
+		this.preco = preco;
 	}
 
-	public int getId() {
-		return id;
+	public int getCodigoServico() {
+		return codigoServico;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setCodigoServico(int codigoServico) {
+		this.codigoServico = codigoServico;
 	}
 	
 	
