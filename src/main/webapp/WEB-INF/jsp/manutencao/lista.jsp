@@ -12,25 +12,25 @@
 <c:import url="/WEB-INF/jsp/menu.jsp"/>
 	
 	<div class="container-fluid mt-3">
-	  <h3>Listagem de clientes:</h3>
+	  <h3>Listagem de Manutenção:</h3>
 
 	  <table class="table table-striped">
 	    <thead>
 	      <tr>
-	        <th>Nome</th>
-	        <th>CPF</th>
-	        <th>E-mail</th>
+	        <th>Necessita de Peça</th>
+	        <th>Tempo de Trabalho</th>
+	        <th>Tipo de Manutenção</th>
 	        <th></th>
 	      </tr>
 	    </thead>
 	    <tbody>
-	   	    
-<c:forEach var="c" items="${listaCliente}">
+	   	  
+<c:forEach var="m" items="${listaManutencao}">
 		      <tr>
-		        <td>${c.nome}</td>
-		        <td>${c.cpf}</td>
-		        <td>${c.email}</td>
-		        <td><a href="/cliente/${c.cpf}/excluir">excluir</a> </td>
+		        <td>${m.necessitaPeca}</td>
+		        <td>${m.tempoTrabalho}</td>
+		        <td>${m.tipoManutencao}</td>
+		        <td><a href="/manutencao/${m.tipoManutencao}/excluir">excluir</a> </td>
 		      </tr>
 	      </c:forEach>
 	    </tbody>

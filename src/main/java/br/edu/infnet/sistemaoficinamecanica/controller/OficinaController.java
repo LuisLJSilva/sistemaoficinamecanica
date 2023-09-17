@@ -20,5 +20,10 @@ public class OficinaController {
 	public String telaMenu() {
 		return "menu";
 	}
+	
+	@GetMapping(value = "/sobre")
+	public String telaSobre() {
+		return "sobre";
+	}
 
 }

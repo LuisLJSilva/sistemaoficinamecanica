@@ -2,25 +2,27 @@ package br.edu.infnet.sistemaoficinamecanica;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.HashMap;
-import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
+import br.edu.infnet.sistemaoficinamecanica.controller.AlinhamentoController;
 import br.edu.infnet.sistemaoficinamecanica.model.negocio.Alinhamento;
-import br.edu.infnet.sistemaoficinamecanica.model.negocio.Manutencao;
 
 @Order(2)
 @Component
+@Controller
 public class AlinhamentoLoader implements ApplicationRunner {
+	
+	@Autowired
+	private AlinhamentoController alinhamentoController;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-
-		Map<Integer, Alinhamento> mapaAlinhamento = new HashMap<Integer, Alinhamento>();
 
 		FileReader file = new FileReader("arquivos/alinhamento.txt");
 		BufferedReader leitura = new BufferedReader(file);
@@ -39,15 +41,11 @@ public class AlinhamentoLoader implements ApplicationRunner {
 									Boolean.valueOf(campos[3]),
 									Float.valueOf(campos[4]),
 									campos[5]);
-
-			mapaAlinhamento.put(alinhamento.getCodigoServico(), alinhamento);
+			
+			alinhamentoController.incluir(alinhamento);
 
 			linha = leitura.readLine();
 
-		}
-
-		for (Alinhamento alinhamento : mapaAlinhamento.values()) {
-			System.out.println("[Alinhamento] Inclusão realizada com sucesso: " + alinhamento);
 		}
 
 		leitura.close();

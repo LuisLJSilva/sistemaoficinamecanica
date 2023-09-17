@@ -4,33 +4,30 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Oficina Mecânica</title>
+	<title>AppPedido</title>
   	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-
-<c:import url="/WEB-INF/jsp/menu.jsp"/>
+	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 	
 	<div class="container-fluid mt-3">
-	  <h3>Listagem de clientes:</h3>
+	  <h3>Listagem de usuários:</h3>
 
 	  <table class="table table-striped">
 	    <thead>
 	      <tr>
 	        <th>Nome</th>
-	        <th>CPF</th>
 	        <th>E-mail</th>
 	        <th></th>
 	      </tr>
 	    </thead>
 	    <tbody>
 	   	    
-<c:forEach var="c" items="${listaCliente}">
+	      <c:forEach var="u" items="${listaUsuario}">
 		      <tr>
-		        <td>${c.nome}</td>
-		        <td>${c.cpf}</td>
-		        <td>${c.email}</td>
-		        <td><a href="/cliente/${c.cpf}/excluir">excluir</a> </td>
+		        <td>${u.nome}</td>
+		        <td>${u.email}</td>
+		        <td><a href="/usuario/${u.email}/excluir">excluir</a> </td>
 		      </tr>
 	      </c:forEach>
 	    </tbody>

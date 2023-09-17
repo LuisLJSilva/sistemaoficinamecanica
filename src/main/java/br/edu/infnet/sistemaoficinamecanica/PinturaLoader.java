@@ -2,25 +2,27 @@ package br.edu.infnet.sistemaoficinamecanica;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.HashMap;
-import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
-import br.edu.infnet.sistemaoficinamecanica.model.negocio.Manutencao;
+import br.edu.infnet.sistemaoficinamecanica.controller.PinturaController;
 import br.edu.infnet.sistemaoficinamecanica.model.negocio.Pintura;
 
 @Order(3)
 @Component
+@Controller
 public class PinturaLoader implements ApplicationRunner {
+	
+	@Autowired
+	private PinturaController pinturaController;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-
-		Map<Integer, Pintura> mapaPintura = new HashMap<Integer, Pintura>();
 
 		FileReader file = new FileReader("arquivos/pintura.txt");
 		BufferedReader leitura = new BufferedReader(file);
@@ -40,14 +42,10 @@ public class PinturaLoader implements ApplicationRunner {
 							  Float.valueOf(campos[4]),
 							  campos[5]);
 
-			mapaPintura.put(pintura.getCodigoServico(), pintura);
+			pinturaController.incluir(pintura);
 
 			linha = leitura.readLine();
 
-		}
-
-		for (Pintura pintura : mapaPintura.values()) {
-			System.out.println("[Pintura] Inclusão realizada com sucesso: " + pintura);
 		}
 
 		leitura.close();

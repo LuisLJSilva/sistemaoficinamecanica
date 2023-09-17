@@ -2,24 +2,25 @@ package br.edu.infnet.sistemaoficinamecanica;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.HashMap;
-import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.sistemaoficinamecanica.controller.ManutencaoController;
 import br.edu.infnet.sistemaoficinamecanica.model.negocio.Manutencao;
 
 @Order(1)
 @Component
 public class ManutencaoLoader implements ApplicationRunner {
+	
+	@Autowired
+	private ManutencaoController manutencaoController;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-
-		Map<Integer, Manutencao> mapaManutencao = new HashMap<Integer, Manutencao>();
 
 		FileReader file = new FileReader("arquivos/manutencao.txt");
 		BufferedReader leitura = new BufferedReader(file);
@@ -39,14 +40,10 @@ public class ManutencaoLoader implements ApplicationRunner {
 									Float.valueOf(campos[4]),
 									campos[5]);
 
-			mapaManutencao.put(manutencao.getCodigoServico(), manutencao);
+			manutencaoController.incluir(manutencao);
 
 			linha = leitura.readLine();
 
-		}
-
-		for (Manutencao manutencao : mapaManutencao.values()) {
-			System.out.println("[Manutencao] Inclusão realizada com sucesso: " + manutencao);
 		}
 
 		leitura.close();
