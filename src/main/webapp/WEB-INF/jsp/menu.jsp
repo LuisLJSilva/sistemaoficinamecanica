@@ -29,7 +29,7 @@
           <a class="nav-link" href="/pintura/lista"><i class="fas fa-paint-roller"></i> Pintura</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fas fa-clipboard"></i> Ordem de Serviço</a>
+          <a class="nav-link" href="/ordemservico/lista"><i class="fas fa-clipboard"></i> Ordem de Serviço</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/sobre"><i class="fas fa-info-circle"></i> Sobre</a> 

@@ -7,11 +7,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.sistemaoficinamecanica.controller.OrdemServicoController;
 import br.edu.infnet.sistemaoficinamecanica.model.negocio.Alinhamento;
 import br.edu.infnet.sistemaoficinamecanica.model.negocio.Cliente;
 import br.edu.infnet.sistemaoficinamecanica.model.negocio.Manutencao;
@@ -23,11 +25,11 @@ import br.edu.infnet.sistemaoficinamecanica.model.negocio.Servico;
 @Component
 public class OrdemServicoLoader implements ApplicationRunner {
 	
+	@Autowired
+	private OrdemServicoController ordemServicoController;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		
-		Map<LocalDateTime, OrdemServico> mapaOrdemServico = new HashMap<LocalDateTime, OrdemServico>();
 		
 		FileReader file = new FileReader("arquivos/ordemservico.txt");
 		BufferedReader leitura = new BufferedReader(file);
@@ -50,7 +52,7 @@ public class OrdemServicoLoader implements ApplicationRunner {
 						new ArrayList<Servico>()
 					);
 				
-				mapaOrdemServico.put(ordemServico.getDataAgendamento(), ordemServico);
+				ordemServicoController.incluir(ordemServico);
 				
 				break;
 				
@@ -101,10 +103,6 @@ public class OrdemServicoLoader implements ApplicationRunner {
 			}
 			
 			linha = leitura.readLine();			
-		}
-		
-		for(OrdemServico os : mapaOrdemServico.values()) {
-			System.out.println("[Ordem de Serviço] Inclusão realizada com sucesso: " + os);
 		}
 		
 		leitura.close();		 
