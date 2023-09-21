@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import br.edu.infnet.sistemaoficinamecanica.model.negocio.Usuario;
+import br.edu.infnet.sistemaoficinamecanica.model.domain.Usuario;
 import br.edu.infnet.sistemaoficinamecanica.model.service.UsuarioService;
 
 @SessionAttributes("user")

@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import br.edu.infnet.sistemaoficinamecanica.model.negocio.Manutencao;
+import br.edu.infnet.sistemaoficinamecanica.model.domain.Manutencao;
 
 @Service
 public class ManutencaoService {

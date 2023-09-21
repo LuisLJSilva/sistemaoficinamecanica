@@ -10,12 +10,12 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.sistemaoficinamecanica.model.negocio.Alinhamento;
-import br.edu.infnet.sistemaoficinamecanica.model.negocio.Cliente;
-import br.edu.infnet.sistemaoficinamecanica.model.negocio.Manutencao;
-import br.edu.infnet.sistemaoficinamecanica.model.negocio.OrdemServico;
-import br.edu.infnet.sistemaoficinamecanica.model.negocio.Pintura;
-import br.edu.infnet.sistemaoficinamecanica.model.negocio.Servico;
+import br.edu.infnet.sistemaoficinamecanica.model.domain.Alinhamento;
+import br.edu.infnet.sistemaoficinamecanica.model.domain.Cliente;
+import br.edu.infnet.sistemaoficinamecanica.model.domain.Manutencao;
+import br.edu.infnet.sistemaoficinamecanica.model.domain.OrdemServico;
+import br.edu.infnet.sistemaoficinamecanica.model.domain.Pintura;
+import br.edu.infnet.sistemaoficinamecanica.model.domain.Servico;
 import br.edu.infnet.sistemaoficinamecanica.model.service.OrdemServicoService;
 
 @Order(5)

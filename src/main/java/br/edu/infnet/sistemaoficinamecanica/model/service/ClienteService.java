@@ -5,7 +5,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.edu.infnet.sistemaoficinamecanica.model.negocio.Cliente;
+import br.edu.infnet.sistemaoficinamecanica.model.domain.Cliente;
 import br.edu.infnet.sistemaoficinamecanica.model.repository.ClienteRepository;
 
 @Service

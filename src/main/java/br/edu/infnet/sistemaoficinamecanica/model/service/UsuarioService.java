@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import br.edu.infnet.sistemaoficinamecanica.model.negocio.Usuario;
+import br.edu.infnet.sistemaoficinamecanica.model.domain.Usuario;
 
 @Service
 public class UsuarioService {

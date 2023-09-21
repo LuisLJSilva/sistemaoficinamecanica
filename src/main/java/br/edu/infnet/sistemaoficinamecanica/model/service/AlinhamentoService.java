@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import br.edu.infnet.sistemaoficinamecanica.model.negocio.Alinhamento;
+import br.edu.infnet.sistemaoficinamecanica.model.domain.Alinhamento;
 
 @Service
 public class AlinhamentoService {

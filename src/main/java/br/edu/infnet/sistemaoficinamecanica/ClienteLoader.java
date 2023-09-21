@@ -8,14 +8,12 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
 
-import br.edu.infnet.sistemaoficinamecanica.model.negocio.Cliente;
+import br.edu.infnet.sistemaoficinamecanica.model.domain.Cliente;
 import br.edu.infnet.sistemaoficinamecanica.model.service.ClienteService;
 
 @Order(4)
 @Component
-@Controller
 public class ClienteLoader implements ApplicationRunner {
 	
 	@Autowired

@@ -9,7 +9,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.sistemaoficinamecanica.model.negocio.Manutencao;
+import br.edu.infnet.sistemaoficinamecanica.model.domain.Manutencao;
 import br.edu.infnet.sistemaoficinamecanica.model.service.ManutencaoService;
 
 @Order(1)

@@ -1,4 +1,4 @@
-package br.edu.infnet.sistemaoficinamecanica.model.negocio;
+package br.edu.infnet.sistemaoficinamecanica.model.domain;
 
 public abstract class Servico {
 	

@@ -1,4 +1,4 @@
-package br.edu.infnet.sistemaoficinamecanica.model.negocio;
+package br.edu.infnet.sistemaoficinamecanica.model.domain;
 
 import java.time.LocalDateTime;
 import java.util.List;

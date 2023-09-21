@@ -10,7 +10,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
-import br.edu.infnet.sistemaoficinamecanica.model.negocio.Alinhamento;
+import br.edu.infnet.sistemaoficinamecanica.model.domain.Alinhamento;
 import br.edu.infnet.sistemaoficinamecanica.model.service.AlinhamentoService;
 
 @Order(2)

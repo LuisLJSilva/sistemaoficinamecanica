@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import br.edu.infnet.sistemaoficinamecanica.model.negocio.Pintura;
+import br.edu.infnet.sistemaoficinamecanica.model.domain.Pintura;
 import br.edu.infnet.sistemaoficinamecanica.model.service.PinturaService;
 
 @Controller

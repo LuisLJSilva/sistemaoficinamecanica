@@ -1,38 +1,37 @@
-package br.edu.infnet.sistemaoficinamecanica.model.negocio;
+package br.edu.infnet.sistemaoficinamecanica.model.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.springframework.stereotype.Component;
+
+import jakarta.persistence.*;
+
 
 @Entity
-@Table (name = "TCliente" )
+@Table(name = "TCliente")
+@Component
 public class Cliente {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	private String cpf;
 	private String email;
-	
-	
-	public Cliente () {
-		
+
+	public Cliente() {
+
 	}
-		
-	public Cliente (String nome, String cpf, String email) {
+
+	public Cliente(String nome, String cpf, String email) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.email = email;
 	}
-	
+
 	@Override
 	public String toString() {
 		return String.format("%s;%s;%s", nome, cpf, email);
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -64,5 +63,5 @@ public class Cliente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
 }

@@ -10,7 +10,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
-import br.edu.infnet.sistemaoficinamecanica.model.negocio.Pintura;
+import br.edu.infnet.sistemaoficinamecanica.model.domain.Pintura;
 import br.edu.infnet.sistemaoficinamecanica.model.service.PinturaService;
 
 @Order(3)
