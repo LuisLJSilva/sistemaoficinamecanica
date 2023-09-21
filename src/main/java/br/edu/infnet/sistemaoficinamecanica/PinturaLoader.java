@@ -10,8 +10,8 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
-import br.edu.infnet.sistemaoficinamecanica.controller.PinturaController;
 import br.edu.infnet.sistemaoficinamecanica.model.negocio.Pintura;
+import br.edu.infnet.sistemaoficinamecanica.model.service.PinturaService;
 
 @Order(3)
 @Component
@@ -19,7 +19,7 @@ import br.edu.infnet.sistemaoficinamecanica.model.negocio.Pintura;
 public class PinturaLoader implements ApplicationRunner {
 	
 	@Autowired
-	private PinturaController pinturaController;
+	private PinturaService pinturaService;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -42,7 +42,7 @@ public class PinturaLoader implements ApplicationRunner {
 							  Float.valueOf(campos[4]),
 							  campos[5]);
 
-			pinturaController.incluir(pintura);
+			pinturaService.incluir(pintura);
 
 			linha = leitura.readLine();
 

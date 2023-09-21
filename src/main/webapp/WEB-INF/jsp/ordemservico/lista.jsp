@@ -20,6 +20,8 @@
 	        <th>Status</th>
 	        <th>Data Agendamento</th>
 	        <th>Urgente</th>
+	        <th>Cliente</th>
+	        <th>Serviços</th>	        
 	        <th></th>
 	      </tr>
 	    </thead>
@@ -30,6 +32,8 @@
 		        <td>${o.status}</td>
 		        <td>${o.dataAgendamento}</td>
 		        <td>${o.urgente}</td>
+		        <td>${o.cliente}</td>
+		        <td>${o.servicos}</td>
 		        <td><a href="/ordemservico/${o.status}/excluir">excluir</a> </td>
 		      </tr>
 	      </c:forEach>

@@ -13,10 +13,14 @@
 	
 	<div class="container-fluid mt-3">
 	  <h3>Listagem de Pintura:</h3>
+	  <h5><a href="/pintura/cadastro">Incluir Pintura</a></h5>
 
 	  <table class="table table-striped">
 	    <thead>
 	      <tr>
+	      	<th>Tipo de Serviço</th>
+	      	<th>Preço</th>
+	      	<th>Codigo do Serviço</th>
 	        <th>Intensidade de Brilho</th>
 	        <th>Tinta Ecológica</th>
 	        <th>Cor</th>
@@ -27,6 +31,9 @@
 	   	  
 <c:forEach var="p" items="${listaPintura}">
 		      <tr>
+		      	<td>${p.tipoServico}</td>
+		      	<td>${p.preco}</td>
+		      	<td>${p.codigoServico}</td>
 		        <td>${p.intensidadeBrilho}</td>
 		        <td>${p.tintaEcologica}</td>
 		        <td>${p.cor}</td>

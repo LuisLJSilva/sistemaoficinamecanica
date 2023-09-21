@@ -13,6 +13,7 @@
 	
 	<div class="container-fluid mt-3">
 	  <h3>Listagem de clientes:</h3>
+	  <h5><a href="/cliente/cadastro">Adicionar Cliente</a></h5>
 
 	  <table class="table table-striped">
 	    <thead>

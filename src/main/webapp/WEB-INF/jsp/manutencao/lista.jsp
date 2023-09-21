@@ -13,10 +13,14 @@
 	
 	<div class="container-fluid mt-3">
 	  <h3>Listagem de Manutenção:</h3>
+	  <h5><a href="/manutencao/cadastro">Incluir Manutenção</a></h5>
 
 	  <table class="table table-striped">
 	    <thead>
 	      <tr>
+	      	<th>Tipo de Serviço</th>
+	      	<th>Preço</th>
+	      	<th>Codigo do Serviço</th>
 	        <th>Necessita de Peça</th>
 	        <th>Tempo de Trabalho</th>
 	        <th>Tipo de Manutenção</th>
@@ -27,6 +31,9 @@
 	   	  
 <c:forEach var="m" items="${listaManutencao}">
 		      <tr>
+		      	<td>${m.tipoServico}</td>
+		      	<td>${m.preco}</td>
+		      	<td>${m.codigoServico}</td>
 		        <td>${m.necessitaPeca}</td>
 		        <td>${m.tempoTrabalho}</td>
 		        <td>${m.tipoManutencao}</td>

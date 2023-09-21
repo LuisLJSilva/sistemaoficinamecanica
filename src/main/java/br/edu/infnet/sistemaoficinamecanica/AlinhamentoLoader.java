@@ -10,8 +10,8 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
-import br.edu.infnet.sistemaoficinamecanica.controller.AlinhamentoController;
 import br.edu.infnet.sistemaoficinamecanica.model.negocio.Alinhamento;
+import br.edu.infnet.sistemaoficinamecanica.model.service.AlinhamentoService;
 
 @Order(2)
 @Component
@@ -19,7 +19,7 @@ import br.edu.infnet.sistemaoficinamecanica.model.negocio.Alinhamento;
 public class AlinhamentoLoader implements ApplicationRunner {
 	
 	@Autowired
-	private AlinhamentoController alinhamentoController;
+	private AlinhamentoService alinhamentoService;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -42,7 +42,7 @@ public class AlinhamentoLoader implements ApplicationRunner {
 									Float.valueOf(campos[4]),
 									campos[5]);
 			
-			alinhamentoController.incluir(alinhamento);
+			alinhamentoService.incluir(alinhamento);
 
 			linha = leitura.readLine();
 

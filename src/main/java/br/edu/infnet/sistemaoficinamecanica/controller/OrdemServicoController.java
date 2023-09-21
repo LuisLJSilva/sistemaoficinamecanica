@@ -1,47 +1,34 @@
 package br.edu.infnet.sistemaoficinamecanica.controller;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.time.LocalDateTime;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import br.edu.infnet.sistemaoficinamecanica.model.negocio.OrdemServico;
-import br.edu.infnet.sistemaoficinamecanica.model.negocio.Pintura;
+import br.edu.infnet.sistemaoficinamecanica.model.service.OrdemServicoService;
 
 @Controller
 public class OrdemServicoController {
-
-	private Map<String, OrdemServico> mapaOrdemServico = new HashMap<String, OrdemServico>();
-
-	public Collection<OrdemServico> obterLista(){
-		return mapaOrdemServico.values();
-	}
 	
-	public void incluir(OrdemServico ordemServico) {
-		mapaOrdemServico.put(ordemServico.getStatus(), ordemServico);		
-		System.out.println("[OrdemServico] Inclusão realizada com sucesso: " + ordemServico);		
-	}
-	
-	public void excluir(String status) {
-		mapaOrdemServico.remove(status);
-	}
+	@Autowired
+	private OrdemServicoService ordemServicoService;
 
+	
 	@GetMapping(value = "/ordemservico/lista")
 	public String telaLista(Model model) {
 
-		model.addAttribute("listaOrdemServico", obterLista());
+		model.addAttribute("listaOrdemServico", ordemServicoService.obterLista());
 		
 		return "ordemservico/lista";
 	}
 
-	@GetMapping(value = "/ordemservico/{status}/excluir") 
-	public String exclusao(@PathVariable String status) {
+	@GetMapping(value = "/ordemservico/{dataAgendamento}/excluir") 
+	public String exclusao(@PathVariable LocalDateTime dataAgendamento) {
 		
-		excluir(status);
+		ordemServicoService.excluir(dataAgendamento);
 
 		return "redirect:/ordemservico/lista";
 	}

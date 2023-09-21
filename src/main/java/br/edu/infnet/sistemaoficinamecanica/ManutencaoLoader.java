@@ -9,15 +9,15 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.sistemaoficinamecanica.controller.ManutencaoController;
 import br.edu.infnet.sistemaoficinamecanica.model.negocio.Manutencao;
+import br.edu.infnet.sistemaoficinamecanica.model.service.ManutencaoService;
 
 @Order(1)
 @Component
 public class ManutencaoLoader implements ApplicationRunner {
 	
 	@Autowired
-	private ManutencaoController manutencaoController;
+	private ManutencaoService manutencaoService;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -40,7 +40,7 @@ public class ManutencaoLoader implements ApplicationRunner {
 									Float.valueOf(campos[4]),
 									campos[5]);
 
-			manutencaoController.incluir(manutencao);
+			manutencaoService.incluir(manutencao);
 
 			linha = leitura.readLine();
 

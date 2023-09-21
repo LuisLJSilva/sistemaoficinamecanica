@@ -2,10 +2,7 @@ package br.edu.infnet.sistemaoficinamecanica;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -13,20 +10,20 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.sistemaoficinamecanica.controller.OrdemServicoController;
 import br.edu.infnet.sistemaoficinamecanica.model.negocio.Alinhamento;
 import br.edu.infnet.sistemaoficinamecanica.model.negocio.Cliente;
 import br.edu.infnet.sistemaoficinamecanica.model.negocio.Manutencao;
 import br.edu.infnet.sistemaoficinamecanica.model.negocio.OrdemServico;
 import br.edu.infnet.sistemaoficinamecanica.model.negocio.Pintura;
 import br.edu.infnet.sistemaoficinamecanica.model.negocio.Servico;
+import br.edu.infnet.sistemaoficinamecanica.model.service.OrdemServicoService;
 
 @Order(5)
 @Component
 public class OrdemServicoLoader implements ApplicationRunner {
 	
 	@Autowired
-	private OrdemServicoController ordemServicoController;
+	private OrdemServicoService ordemServicoService;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -52,7 +49,7 @@ public class OrdemServicoLoader implements ApplicationRunner {
 						new ArrayList<Servico>()
 					);
 				
-				ordemServicoController.incluir(ordemServico);
+				ordemServicoService.incluir(ordemServico);
 				
 				break;
 				

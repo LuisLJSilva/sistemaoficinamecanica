@@ -10,8 +10,8 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
-import br.edu.infnet.sistemaoficinamecanica.controller.ClienteController;
 import br.edu.infnet.sistemaoficinamecanica.model.negocio.Cliente;
+import br.edu.infnet.sistemaoficinamecanica.model.service.ClienteService;
 
 @Order(4)
 @Component
@@ -19,7 +19,7 @@ import br.edu.infnet.sistemaoficinamecanica.model.negocio.Cliente;
 public class ClienteLoader implements ApplicationRunner {
 	
 	@Autowired
-	private ClienteController clienteController;
+	private ClienteService clienteService;
 		
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -40,7 +40,7 @@ public class ClienteLoader implements ApplicationRunner {
 					campos[2]
 					);
 			
-			clienteController.incluir(cliente);
+			clienteService.incluir(cliente);
 			
 			
 			linha = leitura.readLine();				

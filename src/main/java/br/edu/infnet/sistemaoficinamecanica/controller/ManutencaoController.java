@@ -1,46 +1,47 @@
 package br.edu.infnet.sistemaoficinamecanica.controller;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.infnet.sistemaoficinamecanica.model.negocio.Manutencao;
+import br.edu.infnet.sistemaoficinamecanica.model.service.ManutencaoService;
 
 @Controller
 public class ManutencaoController {
-
-	private Map<String, Manutencao> mapaManutencao = new HashMap<String, Manutencao>();
-
-	public Collection<Manutencao> obterLista(){
-		return mapaManutencao.values();
-	}
 	
-	public void incluir(Manutencao manutencao) {
-		mapaManutencao.put(manutencao.getTipoManutencao(), manutencao);		
-		System.out.println("[Manutencao] Inclusão realizada com sucesso: " + manutencao);		
-	}
-	
-	public void excluir(String tipoManutencao) {
-		mapaManutencao.remove(tipoManutencao);
-	}
+	@Autowired
+	private  ManutencaoService manutencaoService;
 
 	@GetMapping(value = "/manutencao/lista")
 	public String telaLista(Model model) {
 
-		model.addAttribute("listaManutencao", obterLista());
+		model.addAttribute("listaManutencao", manutencaoService.obterLista());
 		
 		return "manutencao/lista";
 	}
-
-	@GetMapping(value = "/manutencao/{tipoManutencao}/excluir") 
-	public String exclusao(@PathVariable String tipoManutencao) {
+	
+	@GetMapping(value = "/manutencao/cadastro")
+	public String telaCadastro () {
 		
-		excluir(tipoManutencao);
+		return "manutencao/cadastro";
+	}
+	
+	@PostMapping(value = "/manutencao/incluir") 
+	public String incluir(Manutencao manutencao) {
+		
+		manutencaoService.incluir(manutencao);
+				
+		return "redirect:/manutencao/lista";
+	}
+
+	@GetMapping(value = "/manutencao/{codigoServico}/excluir") 
+	public String exclusao(@PathVariable int codigoServico) {
+		
+		manutencaoService.excluir(codigoServico);
 
 		return "redirect:/manutencao/lista";
 	}
